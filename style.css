@@ -1,0 +1,915 @@
+/* ========================================
+   MRFC - Miracle Church Revival Fellowship
+   Main Stylesheet
+======================================== */
+
+:root {
+  --primary: #7B2D8B;
+  --primary-dark: #5a1f68;
+  --primary-light: #9c4aad;
+  --secondary: #D4A017;
+  --secondary-dark: #b88a12;
+  --dark: #1a1a2e;
+  --light: #f8f9fa;
+  --text-muted: #6c757d;
+  --white: #ffffff;
+  --gradient: linear-gradient(135deg, #7B2D8B 0%, #4a1060 100%);
+  --shadow: 0 10px 40px rgba(0,0,0,0.12);
+  --shadow-hover: 0 20px 60px rgba(0,0,0,0.2);
+  --radius: 12px;
+  --transition: all 0.3s ease;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; transition: var(--transition); }
+img { max-width: 100%; height: auto; }
+
+/* Justify all paragraph text for readability */
+p { text-align: justify; }
+
+/* Keep centered text in designated areas */
+.section-header p,
+.section-subtitle,
+.prayer-bg p,
+.hero-subtitle { text-align: center; }
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+
+/* ======== NAVBAR ======== */
+.navbar {
+  background: var(--dark) !important;
+  padding: 0.8rem 0;
+  transition: var(--transition);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+.navbar.scrolled {
+  background: var(--dark) !important;
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.6) !important;
+  border-bottom: 2px solid var(--secondary);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-brand .brand-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--secondary);
+  object-fit: cover;
+}
+
+.brand-text {
+  line-height: 1.2;
+}
+
+.brand-text .church-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.5px;
+}
+
+.brand-text .church-sub {
+  font-size: 0.7rem;
+  color: var(--secondary);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.navbar-nav .nav-link {
+  color: rgba(255,255,255,0.85) !important;
+  font-weight: 500;
+  padding: 0.5rem 1rem !important;
+  border-radius: 6px;
+  transition: var(--transition);
+  font-size: 0.9rem;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--secondary) !important;
+  background: rgba(255,255,255,0.05);
+}
+
+.nav-give-btn {
+  background: var(--secondary) !important;
+  color: var(--dark) !important;
+  font-weight: 700 !important;
+  padding: 0.4rem 1.2rem !important;
+  border-radius: 25px !important;
+}
+
+.nav-give-btn:hover {
+  background: var(--secondary-dark) !important;
+  transform: translateY(-1px);
+}
+
+/* ======== HERO ======== */
+.hero-section {
+  min-height: 100vh;
+  background: var(--gradient);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.03)" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,261.3C672,256,768,224,864,197.3C960,171,1056,149,1152,154.7C1248,160,1344,192,1392,208L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') bottom no-repeat;
+  background-size: cover;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(212, 160, 23, 0.2);
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
+  padding: 0.4rem 1.2rem;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title span {
+  color: var(--secondary);
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 2.5rem;
+  max-width: 500px;
+}
+
+.hero-verse {
+  background: rgba(255,255,255,0.1);
+  border-left: 4px solid var(--secondary);
+  padding: 1rem 1.5rem;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 2.5rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.9);
+  font-size: 1rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-hero-primary {
+  background: var(--secondary);
+  color: var(--dark);
+  padding: 0.9rem 2.5rem;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  transition: var(--transition);
+  box-shadow: 0 5px 20px rgba(212, 160, 23, 0.4);
+}
+
+.btn-hero-primary:hover {
+  background: var(--secondary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(212, 160, 23, 0.5);
+  color: var(--dark);
+}
+
+.btn-hero-outline {
+  background: transparent;
+  color: var(--white);
+  padding: 0.9rem 2.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 2px solid rgba(255,255,255,0.5);
+  transition: var(--transition);
+}
+
+.btn-hero-outline:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: var(--white);
+  color: var(--white);
+  transform: translateY(-3px);
+}
+
+.hero-image-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-card {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.hero-cross {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.service-times-widget h5 {
+  color: var(--secondary);
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.service-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.9);
+  font-size: 0.9rem;
+}
+
+.service-item:last-child { border-bottom: none; }
+
+.service-item .day { font-weight: 600; }
+.service-item .time { color: var(--secondary); font-weight: 600; }
+
+/* ======== SECTIONS ======== */
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.section-label {
+  display: inline-block;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.section-title span { color: var(--primary); }
+
+.section-divider {
+  width: 60px;
+  height: 4px;
+  background: var(--gradient);
+  margin: 1rem auto;
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ======== WELCOME STRIP ======== */
+.welcome-strip {
+  background: var(--gradient);
+  padding: 2rem 0;
+}
+
+.stat-item {
+  text-align: center;
+  color: var(--white);
+  padding: 1rem;
+}
+
+.stat-item .stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--secondary);
+  line-height: 1;
+}
+
+.stat-item .stat-label {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0.3rem;
+}
+
+/* ======== CARDS ======== */
+.card {
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+}
+
+.card-img-top {
+  height: 220px;
+  object-fit: cover;
+}
+
+.sermon-card .card-img-placeholder {
+  height: 220px;
+  background: var(--gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.card-category-badge {
+  display: inline-block;
+  background: var(--primary);
+  color: var(--white);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.8rem;
+  border-radius: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.8rem;
+}
+
+.event-date-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: var(--secondary);
+  color: var(--dark);
+  text-align: center;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  font-weight: 800;
+  line-height: 1;
+  min-width: 55px;
+}
+
+.event-date-badge .month {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.event-date-badge .day {
+  font-size: 1.6rem;
+}
+
+/* ======== MINISTRY CARDS ======== */
+.ministry-card {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+}
+
+.ministry-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 2rem;
+  color: var(--white);
+  transition: var(--transition);
+}
+
+.ministry-card:hover .ministry-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* ======== PAGE HERO ======== */
+.page-hero {
+  background: var(--gradient);
+  padding: 8rem 0 4rem;
+  margin-top: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--secondary);
+}
+
+.page-hero h1 {
+  color: var(--white);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+}
+
+.page-hero .breadcrumb {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.page-hero .breadcrumb-item,
+.page-hero .breadcrumb-item a {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+}
+
+.page-hero .breadcrumb-item.active { color: var(--secondary); }
+
+.page-hero .breadcrumb-item + .breadcrumb-item::before { color: rgba(255,255,255,0.4); }
+
+/* ======== SERMON FILTER ======== */
+.filter-btn {
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  background: transparent;
+  padding: 0.4rem 1.2rem;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--primary);
+  color: var(--white);
+}
+
+/* ======== STAFF CARDS ======== */
+.staff-card {
+  text-align: center;
+}
+
+.staff-photo {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--primary);
+  margin: 0 auto 1rem;
+}
+
+.staff-photo-placeholder {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: var(--gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  margin: 0 auto 1rem;
+  border: 4px solid var(--primary);
+  color: var(--white);
+}
+
+/* ======== GALLERY ======== */
+.gallery-item {
+  overflow: hidden;
+  border-radius: var(--radius);
+  cursor: pointer;
+  position: relative;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img { transform: scale(1.1); }
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(123, 45, 139, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: var(--transition);
+  border-radius: var(--radius);
+}
+
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+
+/* ======== CONTACT ======== */
+.contact-info-card {
+  background: var(--gradient);
+  color: var(--white);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+}
+
+.contact-info-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  align-items: flex-start;
+}
+
+.contact-icon {
+  width: 45px;
+  height: 45px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.1rem;
+}
+
+/* ======== GIVE / DONATE ======== */
+.give-card {
+  background: var(--gradient);
+  color: var(--white);
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.give-amount-btn {
+  border: 2px solid rgba(255,255,255,0.5);
+  color: var(--white);
+  background: transparent;
+  padding: 0.6rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: var(--transition);
+  margin: 0.3rem;
+  cursor: pointer;
+}
+
+.give-amount-btn:hover,
+.give-amount-btn.selected {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  color: var(--dark);
+}
+
+/* ======== BUTTONS ======== */
+.btn-primary-custom {
+  background: var(--gradient);
+  color: var(--white);
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  border: none;
+  transition: var(--transition);
+  display: inline-block;
+}
+
+.btn-primary-custom:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(123, 45, 139, 0.4);
+  color: var(--white);
+}
+
+.btn-outline-primary-custom {
+  background: transparent;
+  color: var(--primary);
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  border: 2px solid var(--primary);
+  transition: var(--transition);
+  display: inline-block;
+}
+
+.btn-outline-primary-custom:hover {
+  background: var(--primary);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* ======== FORMS ======== */
+.form-control:focus {
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 0.25rem rgba(123, 45, 139, 0.15);
+}
+
+.form-section {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  box-shadow: var(--shadow);
+}
+
+/* ======== ALERT MESSAGES ======== */
+.messages-container { position: fixed; top: 80px; right: 20px; z-index: 9999; width: 350px; }
+.alert { border-radius: var(--radius); border: none; box-shadow: var(--shadow); }
+.alert-success { background: #d4edda; color: #155724; }
+
+/* ======== VIDEO EMBED ======== */
+.video-embed-wrapper {
+  position: relative;
+  padding-top: 56.25%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.video-embed-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+
+/* ======== PRAYER SECTION ======== */
+.prayer-bg {
+  background: var(--gradient);
+  color: var(--white);
+  border-radius: var(--radius);
+  padding: 3rem;
+  text-align: center;
+}
+
+/* ======== SOCIAL LINKS ======== */
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  color: var(--white);
+  font-size: 1rem;
+  transition: var(--transition);
+  margin: 0 0.3rem;
+}
+
+.social-links a:hover {
+  background: var(--secondary);
+  color: var(--dark);
+  transform: translateY(-3px);
+}
+
+/* ======== FOOTER ======== */
+footer {
+  background: var(--dark);
+  color: rgba(255,255,255,0.75);
+  padding: 4rem 0 0;
+}
+
+footer h5 {
+  color: var(--white);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+footer .footer-brand {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+footer a {
+  color: rgba(255,255,255,0.65);
+  transition: var(--transition);
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+footer a:hover { color: var(--secondary); padding-left: 5px; }
+
+.footer-verse {
+  background: rgba(255,255,255,0.05);
+  border-left: 3px solid var(--secondary);
+  padding: 1rem 1.2rem;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+.footer-bottom {
+  background: rgba(0,0,0,0.3);
+  margin-top: 3rem;
+  padding: 1.2rem 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.4);
+}
+
+.footer-bottom a { color: var(--secondary); display: inline; }
+
+/* ======== BACK TO TOP ======== */
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  background: var(--gradient);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  z-index: 999;
+  box-shadow: 0 5px 20px rgba(123, 45, 139, 0.4);
+}
+
+#backToTop.visible { opacity: 1; visibility: visible; }
+#backToTop:hover { transform: translateY(-3px); }
+
+/* ======== RESPONSIVE ======== */
+
+/* --- Navbar collapse (below lg = 992px) --- */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background: var(--dark);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin: 0.5rem -1rem 0;
+    padding: 0.5rem 1rem 1rem;
+    border-radius: 0 0 var(--radius) var(--radius);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  }
+  .navbar-nav .nav-link {
+    padding: 0.65rem 0.8rem !important;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-radius: 0 !important;
+  }
+  .navbar-nav li:last-child .nav-link { border-bottom: none; }
+  .nav-give-btn {
+    display: inline-block !important;
+    margin-top: 0.5rem;
+    border-radius: 25px !important;
+  }
+}
+
+/* --- Mobile (below md = 768px) --- */
+@media (max-width: 767.98px) {
+
+  /* Hero */
+  .hero-section { padding: 5rem 0 3rem; min-height: auto; }
+  .hero-card { margin-top: 2rem; padding: 1.5rem; }
+  .hero-cross { font-size: 3rem; margin-bottom: 0.5rem; }
+  .hero-verse { padding: 0.8rem 1rem; font-size: 0.9rem; }
+  .hero-subtitle { font-size: 1rem; }
+  .hero-buttons {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .btn-hero-primary,
+  .btn-hero-outline {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
+
+  /* Page hero */
+  .page-hero { padding: 6rem 0 2.5rem; }
+  .page-hero h1 { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+
+  /* Sections */
+  .section-header { margin-bottom: 2.5rem; }
+  .section-title { font-size: clamp(1.5rem, 6vw, 2rem); }
+
+  /* Prayer CTA */
+  .prayer-bg { padding: 2rem 1.2rem; }
+  .prayer-bg .btn-hero-primary,
+  .prayer-bg .btn-hero-outline {
+    display: block !important;
+    width: 100% !important;
+    margin: 0.4rem 0 !important;
+    text-align: center;
+  }
+
+  /* Cards — disable hover lift on touch screens */
+  .card:hover { transform: none; box-shadow: var(--shadow); }
+  .ministry-card { padding: 1.5rem 1rem; }
+
+  /* Gallery */
+  .gallery-item img { height: 160px; }
+
+  /* Contact */
+  .contact-info-card { padding: 1.5rem; }
+  .contact-info-item { gap: 0.8rem; }
+  .contact-icon { width: 38px; height: 38px; font-size: 0.95rem; flex-shrink: 0; }
+
+  /* Forms */
+  .form-section { padding: 1.5rem; }
+
+  /* Buttons */
+  .btn-primary-custom,
+  .btn-outline-primary-custom {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  /* Footer */
+  footer { padding: 2.5rem 0 0; }
+  footer h5 { margin-bottom: 0.8rem; }
+
+  /* Back to top */
+  #backToTop { bottom: 20px; right: 15px; width: 40px; height: 40px; font-size: 1rem; }
+
+  /* Alerts / messages */
+  .messages-container { width: calc(100% - 30px); right: 15px; top: 70px; }
+}
+
+/* --- Small phones (below 480px) --- */
+@media (max-width: 479.98px) {
+  .hero-badge { font-size: 0.72rem; padding: 0.3rem 0.8rem; }
+  .service-item { font-size: 0.82rem; }
+  .event-date-badge .day { font-size: 1.2rem; }
+  .event-date-badge { padding: 0.4rem 0.6rem; min-width: 45px; }
+  .gallery-item img { height: 130px; }
+  .staff-photo,
+  .staff-photo-placeholder { width: 100px; height: 100px; font-size: 2.2rem; }
+  .ministry-icon { width: 65px; height: 65px; font-size: 1.6rem; }
+  .hero-card { padding: 1.2rem; }
+  .prayer-bg { padding: 1.5rem 1rem; }
+  .contact-info-card { padding: 1.2rem; }
+  .form-section { padding: 1.2rem; }
+}
